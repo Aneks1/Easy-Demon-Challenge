@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>Easy Demon Challenge</title>
+        <link rel="stylesheet" href="src/css/styles.css">
+        <link rel="icon" type="image/png" href="src/assets/ez-demon.png"></link>
+        <script src="dist/getRandomLevel.js" defer></script>
+    </head>
+    <body>
+        <div class="allContainer">
+            <div class="container">
+                <div class="containerInside">
+                    <div class="timer", id="timer">2:00:00</div>
+                    <div class="buttonsContainer">
+                        <button class ="button", id="startBtn", onclick="getRandomLevel()">Start</button>
+                        <button class ="button", id="giveUp", onclick="giveUp()">Give Up</button>
+                    </div>
+                    <div class="demonsCompleted", id="demonsCompleted">Demons Completed: 0</div>
+                </div>
+            </div>
+
+            <div class="demonsText", id="demonName"></div>
+        </div>
+    </body>
+</html>

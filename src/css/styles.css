@@ -1,0 +1,87 @@
+body, button {
+    background-color: rgb(42, 42, 42);
+    color: white;
+    overflow-x: hidden;
+    margin: 0%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.allContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: none;
+}
+
+.button {
+    background-color: rgb(122, 113, 255);
+    border: none;
+    border-radius: 1rem;
+    width: 12vh;
+    height: 6vh;
+    font-size: 2vh;
+    font-weight: 600;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.button:hover {
+    transition: background-color .4s;
+    transition: color .4s;
+    background-color: aqua;
+    color: black;
+}
+
+.demonsText {
+    margin-left: 1rem;
+    font-size: 3vh;
+    margin-top: 1rem;
+}
+
+.timer {
+    margin-top: 1rem;
+    left: 10rem;
+    font-weight: 1000;
+    font-size: 5rem;
+    color: rgb(122, 113, 255);
+}
+
+.container {
+    position: fixed;
+    top: 3.5vh;
+    left: 58%;
+    border-radius: 3rem;
+    height: 48rem;
+    width: 40rem;
+    background-image: linear-gradient(to right, rgb(132, 0, 255), cyan);
+}
+
+.containerInside {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    margin: .5rem;
+    border-radius: 3rem;
+    height: 47rem;
+    width: 39rem;
+    background-color: rgb(32, 32, 32);
+}
+
+.buttonsContainer {
+    display: flex;
+    align-items: flex-end;
+    background: none;
+}
+
+.demonsCompleted {
+    margin-top: 2vh;
+    left: 10rem;
+    font-weight: 1000;
+    font-size: 2.5rem;
+    color: rgb(122, 113, 255);
+}
