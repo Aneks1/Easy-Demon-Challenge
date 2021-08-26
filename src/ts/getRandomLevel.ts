@@ -2,12 +2,15 @@ const text = document.getElementById('demonName')
 const button = document.getElementById('startBtn')
 const timer = document.getElementById('timer')
 const demons = document.getElementById('demonsCompleted')
+const menu = document.getElementById('pauseMenu')
+const load = document.getElementById('loadFile')
 
 let started = false
 let demonsCompleted = 0
 
 let startHours = 2
 let time = startHours * 60 * 60
+let pauseOppened = false
 
 async function getRandomLevel() {
 
@@ -48,3 +51,40 @@ function updateTimer() {
 }
 
 setInterval(updateTimer, 1000)
+
+function saveData() {
+    // I have no idea how to make this
+    const dataToSave = {
+        timeRemaining: time,
+        demonsCompleted: demonsCompleted,
+    }
+    const savedData = JSON.stringify(dataToSave)
+    console.log(savedData)
+
+    const dataFile = new Blob([savedData], { type: 'text/json'})
+
+    var fileURL = window.URL.createObjectURL(dataFile);
+    var fileLink = document.createElement('a');
+  
+    fileLink.href = fileURL;
+    fileLink.setAttribute('download', 'Easy-Demon-Challenge.edc');
+    document.body.appendChild(fileLink);
+   
+    fileLink.click();
+}
+
+function loadData() {
+    
+}
+
+function pause() {
+    if(pauseOppened == false && started == true) {
+        menu!.style.visibility = 'visible'
+        started = false
+        pauseOppened = true
+    } else if(pauseOppened == true) {
+        menu!.style.visibility = 'hidden'
+        started = true
+        pauseOppened = false
+    }
+}

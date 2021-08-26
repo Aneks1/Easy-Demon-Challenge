@@ -11,18 +11,32 @@
     </head>
     <body>
         <div class="allContainer">
+            <div class="title">Easy Demon Challenge</div>
             <div class="container">
                 <div class="containerInside">
-                    <div class="timer", id="timer">2:00:00</div>
+                    <div class="bigText", id="timer">2:00:00</div>
                     <div class="buttonsContainer">
                         <button class ="button", id="startBtn", onclick="getRandomLevel()">Start</button>
                         <button class ="button", id="giveUp", onclick="giveUp()">Give Up</button>
+                        <button class ="button", id="pause", onclick="pause()">Pause</button>
                     </div>
                     <div class="demonsCompleted", id="demonsCompleted">Demons Completed: 0</div>
                 </div>
             </div>
 
             <div class="demonsText", id="demonName"></div>
+        </div>
+        <div class="pauseMenu" id="pauseMenu">
+            <div class="menuContent">
+                <div class="menuContentInside">
+                    <div class="bigText">Paused</div>
+                    <div class="buttonsContainer">
+                        <button class ="button", onclick="saveData()">Save</button>
+                        <button class ="button", onclick="loadData()">Load</button>
+                        <button class ="button", onclick="pause()">Close Menu</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

@@ -4,6 +4,17 @@ body, button {
     overflow-x: hidden;
     margin: 0%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    max-width: 100%;
+}
+
+.title {
+    font-weight: 600;
+    position: absolute;
+    top: 3vh;
+    text-align: center;
+    font-size: 3rem;
+    width: 50rem;
+    height: 5rem;
 }
 
 .allContainer {
@@ -12,7 +23,7 @@ body, button {
     position: absolute;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     background: none;
 }
 
@@ -41,7 +52,7 @@ body, button {
     margin-top: 1rem;
 }
 
-.timer {
+.bigText {
     margin-top: 1rem;
     left: 10rem;
     font-weight: 1000;
@@ -51,11 +62,11 @@ body, button {
 
 .container {
     position: fixed;
-    top: 3.5vh;
-    left: 58%;
+    top: 15vh;
+    left: 120vh;
     border-radius: 3rem;
-    height: 48rem;
-    width: 40rem;
+    height: 42rem;
+    width: 36rem;
     background-image: linear-gradient(to right, rgb(132, 0, 255), cyan);
 }
 
@@ -67,8 +78,8 @@ body, button {
     position: absolute;
     margin: .5rem;
     border-radius: 3rem;
-    height: 47rem;
-    width: 39rem;
+    height: 41rem;
+    width: 35rem;
     background-color: rgb(32, 32, 32);
 }
 
@@ -84,4 +95,37 @@ body, button {
     font-weight: 1000;
     font-size: 2.5rem;
     color: rgb(122, 113, 255);
+}
+
+
+.pauseMenu {
+    visibility: hidden;
+    background-color: rgba(125, 102, 255, 0.61);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.menuContent {
+    position: fixed;
+    border-radius: 3rem;
+    height: 42rem;
+    width: 36rem;
+    background-image: linear-gradient(to right, rgb(132, 0, 255), cyan);
+}
+
+.menuContentInside {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    margin: .5rem;
+    border-radius: 3rem;
+    height: 41rem;
+    width: 35rem;
+    background-color: rgb(32, 32, 32);
 }
