@@ -86,5 +86,7 @@ function pause() {
         menu!.style.visibility = 'hidden'
         started = true
         pauseOppened = false
+    } else {
+        window.alert('You can\'t pause if game didn\'t start lmao.')
     }
 }

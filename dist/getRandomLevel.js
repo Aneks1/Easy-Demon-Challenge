@@ -98,4 +98,7 @@ function pause() {
         started = true;
         pauseOppened = false;
     }
+    else {
+        window.alert('You can\'t pause if game didn\'t start lmao.');
+    }
 }
