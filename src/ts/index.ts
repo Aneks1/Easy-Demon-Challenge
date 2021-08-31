@@ -19,7 +19,7 @@ let demonsArray: any = []
 
 async function getRandomLevel() {
 
-    if(started == false) { button!.innerText = 'Completed'; startHours = 2; started = true; time = startHours * 60 * 60; demonsCompleted = 0; demons!.innerText = 'Demons Completed: 0' }
+    if(started == false) { button!.innerText = 'Completed'; startHours = 2; started = true; time = startHours * 60 * 60; demonsCompleted = 0; demons!.innerText = 'Demons Completed: 0'; allDemons!.innerHTML = '' }
     else { demonsCompleted ++; demons!.innerText = 'Demons Completed: ' + demonsCompleted }
 
     const randomPage = Math.floor(Math.random() * (92 - 1) + 1)

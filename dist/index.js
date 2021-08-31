@@ -32,6 +32,7 @@ function getRandomLevel() {
             time = startHours * 60 * 60;
             demonsCompleted = 0;
             demons.innerText = 'Demons Completed: 0';
+            allDemons.innerHTML = '';
         }
         else {
             demonsCompleted++;
