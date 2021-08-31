@@ -1,102 +1,227 @@
-body, button {
-    background-color: rgb(42, 42, 42);
-    color: white;
+body {
+    background-color: rgb(43, 43, 43);
     overflow-x: hidden;
-    margin: 0%;
+    margin: 0px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     max-width: 100%;
+    max-height: 100%;
 }
 
-.title {
-    font-weight: 600;
-    position: absolute;
-    top: 3vh;
-    text-align: center;
-    font-size: 3rem;
-    width: 50rem;
-    height: 5rem;
+::-webkit-scrollbar {
+    background-color: #00000000;
+    color: #aba499;
+    width: .5rem;
+}
+  
+::-webkit-scrollbar-corner {
+    background-color: #181a1b;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: #ffffff3a;
+    border-radius: 1rem;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background-color: #ffffff60;
+    border-radius: 1rem;
 }
 
-.allContainer {
+.body {
     width: 100%;
     height: 100%;
     position: absolute;
+    background: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titleContainer {
+    width: 100%;
+    height: 6rem;
+    position: fixed;
+    background-color: rgb(43, 43, 43);
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
+}
+
+.title {
+    background: none;
+    border: none;
+    padding: .5rem;
+    text-align: center;
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 600;
+    transition: font-size .5s, color .3s;
+}
+
+.title:hover {
+    color: rgb(204, 204, 204);
+    cursor: help;
+    font-size: 3.7rem;
+    text-decoration: underline rgb(204, 204, 204);
+    text-underline-offset: .1rem;
+}
+
+.theOtherOnes {
+    position: static;
+    margin-top: 8rem;
+    width: 100%;
+    height: 100%;
+    background: none;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.demonsContainer {
+    width: 60%;
+    height: 90%;
+    background: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.ui {
+    width: 35%;
+    height: 94%;
     background: none;
 }
 
-.button {
-    background-color: rgb(122, 113, 255);
-    border: none;
-    border-radius: 1rem;
-    width: 12vh;
-    height: 6vh;
-    font-size: 2vh;
-    font-weight: 600;
-    margin-left: 1rem;
-    margin-top: 1rem;
-}
-
-.button:hover {
-    transition: background-color .4s;
-    transition: color .4s;
-    background-color: aqua;
-    color: black;
-}
-
-.demonsText {
-    margin-left: 1rem;
-    font-size: 3vh;
-    margin-top: 20rem;
-}
-
-.bigText {
-    margin-top: 1rem;
-    left: 10rem;
-    font-weight: 1000;
-    font-size: 5rem;
-    color: rgb(122, 113, 255);
-}
-
-.container {
-    position: fixed;
-    top: 15vh;
-    left: 120vh;
-    border-radius: 3rem;
-    height: 42rem;
-    width: 36rem;
+.uiBorder {
     background-image: linear-gradient(to right, rgb(132, 0, 255), cyan);
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
 }
 
-.containerInside {
-    align-items: center;
+.uiInside {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    position: absolute;
-    margin: .5rem;
-    border-radius: 3rem;
-    height: 41rem;
-    width: 35rem;
-    background-color: rgb(32, 32, 32);
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(43, 43, 43);
+    border-radius: 1.5rem;
+    width: 98%;
+    height: 98%;
+    margin: 1%;
+}
+
+.bigFont-uhd {
+    color: rgb(128, 82, 255);
+    font-size: 5.5rem;
+    text-align: center;
+    font-weight: 1000;
+    position: static;
+}
+
+.smallFont-uhd {
+    color: rgb(128, 82, 255);
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+    position: static;
 }
 
 .buttonsContainer {
-    display: flex;
-    align-items: flex-end;
     background: none;
+    width: 70%;
+    height: 3.8rem;
+    position: static;
+    margin-top: 1rem;
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.demonsCompleted {
-    margin-top: 2vh;
-    left: 10rem;
-    font-weight: 1000;
-    font-size: 2.5rem;
-    color: rgb(122, 113, 255);
+.button {
+    background-color: rgb(128, 82, 255);
+    height: 100%;
+    width: 30%;
+    border-radius: 1rem;
+    color: black;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
 }
 
+.button:hover {
+    transition: font-size .5s, background-color .3s;
+    background-color: rgb(0, 255, 255);
+    font-size: 1.3rem;
+}
+
+.demonTabsBorder {
+    background-image: linear-gradient(to right, rgb(132, 0, 255), cyan);
+    width: 98%;
+    height: 8.5rem;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    transition: margin-left .5s;
+    margin-left: -100rem;
+}
+
+.demonTabsInside {
+    background-color: rgb(43, 43, 43);
+    width: 99%;
+    height: 92%;
+    margin: .5%;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2rem;
+    padding-left: 1rem;
+}
+
+.face {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 86%;
+    width: 9rem;
+    background-image: url('../assets//ez-demon.png');
+}
+
+.demonsTextContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    white-space: nowrap;
+}
+
+.demonName {
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+    height: 100%;
+}
+
+.demonDescription {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    height: 100%;
+    margin-top: -1rem;
+}
 
 .pauseMenu {
     visibility: hidden;
@@ -107,13 +232,14 @@ body, button {
     align-items: center;
     display: flex;
     justify-content: center;
+    z-index: 10;
 }
 
 .menuContent {
     position: fixed;
     border-radius: 3rem;
-    height: 42rem;
-    width: 36rem;
+    height: 48rem;
+    width: 40rem;
     background-image: linear-gradient(to right, rgb(132, 0, 255), cyan);
 }
 
@@ -125,7 +251,7 @@ body, button {
     position: absolute;
     margin: .5rem;
     border-radius: 3rem;
-    height: 41rem;
-    width: 35rem;
+    height: 47rem;
+    width: 39rem;
     background-color: rgb(32, 32, 32);
 }

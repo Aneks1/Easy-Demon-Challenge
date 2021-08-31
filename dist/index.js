@@ -13,18 +13,22 @@ const timer = document.getElementById('timer');
 const demons = document.getElementById('demonsCompleted');
 const menu = document.getElementById('pauseMenu');
 const load = document.getElementById('loadFile');
+const demonsName = document.getElementById('demonName');
+const demonsDescription = document.getElementById('demonDescription');
 const demonsContainer = document.getElementById('demonsContainer');
+const allDemons = document.getElementById('allDemons');
 let started = false;
 let demonsCompleted = 0;
 let startHours = 2;
 let time = startHours * 60 * 60;
 let pauseOppened = false;
+let demonsArray = [];
 function getRandomLevel() {
     return __awaiter(this, void 0, void 0, function* () {
         if (started == false) {
             button.innerText = 'Completed';
-            started = true;
             startHours = 2;
+            started = true;
             time = startHours * 60 * 60;
             demonsCompleted = 0;
             demons.innerText = 'Demons Completed: 0';
@@ -43,15 +47,13 @@ function getRandomLevel() {
             window.alert('Reached Rate Limit, try again in a few seconds.');
         }
         const level = res[randomResult];
-        let theNewDemon = document.createElement('div');
-        let theNewDemonContainer = document.createElement('div');
-        let demonText = document.createElement('div');
-        let insideText = document.createTextNode(level.name + '\nBy ' + level.author + '\n' + level.id);
-        demonText.appendChild(insideText);
-        theNewDemonContainer.appendChild(demonText);
-        theNewDemon.appendChild(theNewDemonContainer);
-        demonsContainer.appendChild(theNewDemon);
-        console.log(document.querySelector('.demonTabs'));
+        const newTabId = demonsCompleted - 1;
+        allDemons.innerHTML = allDemons.innerHTML.toString() + `\n<div class="demonTabsBorder", id="demonTab${newTabId.toString()}"><div class="demonTabsInside"><div class="face"></div><div class="demonsTextContainer"><div class="demonName">${level.name}</div><div class="demonDescription", id="demonDescription${newTabId.toString()}">a</div></div></div></div>`;
+        const newTab = document.getElementById(`demonTab${newTabId.toString()}`);
+        const newDes = document.getElementById(`demonDescription${newTabId.toString()}`);
+        newDes.innerText = `By: ${level.author}\nID: ${level.id}`;
+        demonsArray.push(level);
+        setTimeout(() => { newTab.style.marginLeft = '0rem'; }, 1);
     });
 }
 function giveUp() {
@@ -80,6 +82,7 @@ function saveData() {
     const dataToSave = {
         timeRemaining: time,
         demonsCompleted: demonsCompleted,
+        demonsArray: demonsArray
     };
     const savedData = JSON.stringify(dataToSave);
     console.log(savedData);
@@ -92,6 +95,7 @@ function saveData() {
     fileLink.click();
 }
 function loadData() {
+    window.alert('Not working yet :(\nI will add it in the next update.');
 }
 function pause() {
     if (pauseOppened == false && started == true) {

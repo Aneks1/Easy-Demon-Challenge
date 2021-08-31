@@ -3,41 +3,45 @@
     <head>
         <meta charset="UTF-8"> 
         <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
-        <meta property="og:type" content="website">
-        <meta property=’og:title’ content='Easy Demon Challenge'>
-        <meta property=’og:description’ content='Geometry Dash Challenge. Complete as many Easy Demons as possible in 2 hours. Idea by Me.'>
-        <meta property=’og:url’ content='https://itsamex.github.io/Easy-Demon-Challenge/'>
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
         <title>Easy Demon Challenge</title>
         <link rel="stylesheet" href="src/css/styles.css">
         <link rel="icon" type="image/png" href="src/assets/ez-demon.png"></link>
-        <script src="dist/getRandomLevel.js" defer></script>
+        <script src="dist/index.js" defer></script>
     </head>
     <body>
-        <div class="allContainer">
-            <div class="title">Easy Demon Challenge</div>
-            <div class="container">
-                <div class="containerInside">
-                    <div class="bigText", id="timer">2:00:00</div>
-                    <div class="buttonsContainer">
-                        <button class ="button", id="startBtn", onclick="getRandomLevel()">Start</button>
-                        <button class ="button", id="giveUp", onclick="giveUp()">Give Up</button>
-                        <button class ="button", id="pause", onclick="pause()">Pause</button>
-                    </div>
-                    <div class="demonsCompleted", id="demonsCompleted">Demons Completed: 0</div>
-                </div>
-            </div>
-
-            <div class="demonsText", id="demonName"></div>
-        </div>
         <div class="pauseMenu" id="pauseMenu">
             <div class="menuContent">
                 <div class="menuContentInside">
-                    <div class="bigText">Paused</div>
+                    <div class="bigFont-uhd">Paused</div>
                     <div class="buttonsContainer">
                         <button class ="button", onclick="saveData()">Save</button>
                         <button class ="button", onclick="loadData()">Load</button>
                         <button class ="button", onclick="pause()">Close Menu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="titleContainer">
+                <button class="title">
+                    Easy Demon Challenge
+                </button>
+            </div>
+            <div class="theOtherOnes">
+                <div class="demonsContainer", id="allDemons">
+                </div>
+                <div class="ui">
+                    <div class="uiBorder">
+                        <div class="uiInside">
+                            <div class="bigFont-uhd", id="timer">2:00:00</div>
+                            <div class="smallFont-uhd", id="demonsCompleted">Demons Completed: 0</div>
+                            <div class="buttonsContainer">
+                                <button class="button", id="startBtn", onclick="getRandomLevel()">Start</button>
+                                <button class="button", onclick="giveUp()">Give Up</button>
+                                <button class="button", onclick="pause()">Pause</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

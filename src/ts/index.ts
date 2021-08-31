@@ -3,7 +3,10 @@ const timer = document.getElementById('timer')
 const demons = document.getElementById('demonsCompleted')
 const menu = document.getElementById('pauseMenu')
 const load = document.getElementById('loadFile')
+const demonsName = document.getElementById('demonName')
+const demonsDescription = document.getElementById('demonDescription')
 const demonsContainer = document.getElementById('demonsContainer')
+const allDemons = document.getElementById('allDemons')
 
 let started = false
 let demonsCompleted = 0
@@ -12,9 +15,11 @@ let startHours = 2
 let time = startHours * 60 * 60
 let pauseOppened = false
 
+let demonsArray: any = []
+
 async function getRandomLevel() {
 
-    if(started == false) { button!.innerText = 'Completed'; started = true; startHours = 2; time = startHours * 60 * 60; demonsCompleted = 0; demons!.innerText = 'Demons Completed: 0' }
+    if(started == false) { button!.innerText = 'Completed'; startHours = 2; started = true; time = startHours * 60 * 60; demonsCompleted = 0; demons!.innerText = 'Demons Completed: 0' }
     else { demonsCompleted ++; demons!.innerText = 'Demons Completed: ' + demonsCompleted }
 
     const randomPage = Math.floor(Math.random() * (92 - 1) + 1)
@@ -26,17 +31,17 @@ async function getRandomLevel() {
 
     const level = res[randomResult]
 
-    let theNewDemon = document.createElement('div')
-    let theNewDemonContainer = document.createElement('div')
-    let demonText = document.createElement('div')
-    let insideText = document.createTextNode(level.name + '\nBy ' + level.author + '\n' + level.id)
+    const newTabId = demonsCompleted -1
 
-    demonText.appendChild(insideText)
-    theNewDemonContainer.appendChild(demonText)
-    theNewDemon.appendChild(theNewDemonContainer)
-    demonsContainer!.appendChild(theNewDemon)
+    allDemons!.innerHTML = allDemons!.innerHTML.toString() + `\n<div class="demonTabsBorder", id="demonTab${newTabId.toString()}"><div class="demonTabsInside"><div class="face"></div><div class="demonsTextContainer"><div class="demonName">${level.name}</div><div class="demonDescription", id="demonDescription${newTabId.toString()}">a</div></div></div></div>`
+    
+    const newTab = document.getElementById(`demonTab${newTabId.toString()}`)
+    const newDes = document.getElementById(`demonDescription${newTabId.toString()}`)
 
-    theNewDemon.style.cssText = '{flex-direction: column;display: flex;position: absolute;height: 43rem;width: 50rem;background: none;top: 8rem;left: .5rem;align-items: center;margin-left: -50rem;}'
+    newDes!.innerText = `By: ${level.author}\nID: ${level.id}`
+    demonsArray.push(level)
+
+    setTimeout(() => { newTab!.style.marginLeft = '0rem' }, 1)
 }
 
 function giveUp() {
@@ -66,6 +71,7 @@ function saveData() {
     const dataToSave = {
         timeRemaining: time,
         demonsCompleted: demonsCompleted,
+        demonsArray: demonsArray
     }
     const savedData = JSON.stringify(dataToSave)
     console.log(savedData)
@@ -83,7 +89,7 @@ function saveData() {
 }
 
 function loadData() {
-    
+    window.alert('Not working yet :(\nI will add it in the next update.')
 }
 
 function pause() {
