@@ -33,7 +33,7 @@ async function getRandomLevel() {
 
     const newTabId = demonsCompleted -1
 
-    allDemons!.innerHTML = allDemons!.innerHTML.toString() + `\n<div class="demonTabsBorder", id="demonTab${newTabId.toString()}"><div class="demonTabsInside"><div class="face"></div><div class="demonsTextContainer"><div class="demonName">${level.name}</div><div class="demonDescription", id="demonDescription${newTabId.toString()}">a</div></div></div></div>`
+    allDemons!.innerHTML = allDemons!.innerHTML.toString() + `\n<div class="demonTabsBorder", id="demonTab${newTabId.toString()}"><div class="demonTabsInside"><div class="face"></div><div class="demonsTextContainer"><div class="demonName">#${demonsCompleted + 1} - ${level.name}</div><div class="demonDescription", id="demonDescription${newTabId.toString()}">a</div></div></div></div>`
     
     const newTab = document.getElementById(`demonTab${newTabId.toString()}`)
     const newDes = document.getElementById(`demonDescription${newTabId.toString()}`)
@@ -41,7 +41,9 @@ async function getRandomLevel() {
     newDes!.innerText = `By: ${level.author}\nID: ${level.id}`
     demonsArray.push(level)
 
-    setTimeout(() => { newTab!.style.marginLeft = '0rem' }, 1)
+    allDemons!.scrollTop = allDemons!.scrollHeight - allDemons!.clientHeight;
+
+    setTimeout(() => { newTab!.style.marginLeft = '0rem' }, 1000)
 }
 
 function giveUp() {
