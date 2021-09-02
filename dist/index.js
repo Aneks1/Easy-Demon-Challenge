@@ -17,12 +17,22 @@ const demonsName = document.getElementById('demonName');
 const demonsDescription = document.getElementById('demonDescription');
 const demonsContainer = document.getElementById('demonsContainer');
 const allDemons = document.getElementById('allDemons');
+const aboutE = document.getElementById('about');
 let started = false;
 let demonsCompleted = 0;
 let startHours = 2;
 let time = startHours * 60 * 60;
 let pauseOppened = false;
 let demonsArray = [];
+let seed = '';
+function getSeed() {
+    for (let i = 0; i <= 10; i++) {
+        const seedNumber1 = Math.floor(Math.random() * (92 - 1) + 1);
+        const seedNumber2 = Math.floor(Math.random() * (10 - 1) + 1);
+        seed = seed + seedNumber1.toString() + seedNumber2.toString();
+        console.log(seed);
+    }
+}
 function getRandomLevel() {
     return __awaiter(this, void 0, void 0, function* () {
         if (started == false) {
@@ -33,6 +43,7 @@ function getRandomLevel() {
             demonsCompleted = 0;
             demons.innerText = 'Demons Completed: 0';
             allDemons.innerHTML = '';
+            getSeed();
         }
         else {
             demonsCompleted++;
@@ -55,17 +66,26 @@ function getRandomLevel() {
         newDes.innerText = `By: ${level.author}\nID: ${level.id}`;
         demonsArray.push(level);
         allDemons.scrollTop = allDemons.scrollHeight - allDemons.clientHeight;
-        setTimeout(() => { newTab.style.marginLeft = '0rem'; }, 1000);
+        newTab.style.marginLeft = '0rem';
     });
 }
 function giveUp() {
-    started = false;
-    button.innerText = 'Start';
-    timer.innerText = 'YOU GAVE UP';
+    if (started == false) {
+        window.alert('Hey! You can\'t give up if you didn\'t start.');
+        return;
+    }
+    if (confirm('Are you sure you want to give up? The challenge will end.')) {
+        started = false;
+        button.innerText = 'Start';
+        timer.innerText = 'You Gave Up';
+    }
+    else {
+        return;
+    }
 }
 function updateTimer() {
     if (time == 0) {
-        timer.innerText = 'TIME\'S UP!';
+        timer.innerText = 'Time\'s Up!';
         return;
     }
     if (!started == true)
@@ -112,5 +132,15 @@ function pause() {
     }
     else {
         window.alert('You can\'t pause if game didn\'t start lmao.');
+    }
+}
+function about() {
+    if (pauseOppened == false) {
+        aboutE.style.visibility = 'visible';
+        pauseOppened = true;
+    }
+    else {
+        aboutE.style.visibility = 'hidden';
+        pauseOppened = false;
     }
 }

@@ -10,21 +10,35 @@
         <script src="dist/index.js" defer></script>
     </head>
     <body>
-        <div class="pauseMenu" id="pauseMenu">
+        <div class="background", id="about">
+            <div class="about">
+                <div class="aboutInside">
+                    <div class="bigFont-uhd">About</div>
+                    <div class="aboutText">
+                        Easy Demon Challenge is a challenge in which you need to complete as many easy demons as possible in 2 hours. Idea and website by
+                        <a href="https://itsamex.github.io", style="color: cyan;">Me :P</a>
+                    </div>
+                    <div class="buttonsContainer">
+                        <button class ="button", onclick="about()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="background" id="pauseMenu">
             <div class="menuContent">
                 <div class="menuContentInside">
                     <div class="bigFont-uhd">Paused</div>
                     <div class="buttonsContainer">
                         <button class ="button", onclick="saveData()">Save</button>
                         <button class ="button", onclick="loadData()">Load</button>
-                        <button class ="button", onclick="pause()">Close Menu</button>
+                        <button class ="button", onclick="pause()">Close</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="body">
             <div class="titleContainer">
-                <button class="title">
+                <button class="title", onclick="about()">
                     Easy Demon Challenge
                 </button>
             </div>

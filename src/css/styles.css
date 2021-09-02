@@ -224,7 +224,7 @@ body {
     margin-top: -1rem;
 }
 
-.pauseMenu {
+.background {
     visibility: hidden;
     background-color: rgba(125, 102, 255, 0.61);
     width: 100%;
@@ -255,4 +255,32 @@ body {
     height: 47rem;
     width: 39rem;
     background-color: rgb(32, 32, 32);
+}
+
+.about {
+    position: fixed;
+    border-radius: 3rem;
+    height: 38rem;
+    width: 35rem;
+    background-image: linear-gradient(to right, rgb(132, 0, 255), cyan);
+}
+
+.aboutInside {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    margin: .5rem;
+    border-radius: 3rem;
+    height: 37rem;
+    width: 34rem;
+    background-color: rgb(32, 32, 32);
+}
+
+.aboutText {
+    color: white;
+    font-size: 2rem;
+    text-align: justify;
+    padding: 2rem;
 }
