@@ -1,4 +1,4 @@
-![Easy Demon Challenge](https://github.com/ItsAmex/Easy-Demon-Challenge/blob/main/src/assets/EDC_Banner1.png)
+![Easy Demon Challenge](https://github.com/ItsAmex/Easy-Demon-Challenge/blob/main/public/assets/EDC_Banner1.png)
 
 
 ## What is it?
@@ -7,7 +7,7 @@ Geometry Dash challenge in which you need to complete as many easy demons as pos
 Enjoy
 
 ## Screenshot
-![ScreenShot](https://github.com/ItsAmex/Easy-Demon-Challenge/blob/main/src/assets/Screenshot.png)
+![ScreenShot](https://github.com/ItsAmex/Easy-Demon-Challenge/blob/main/public/assets/Screenshot.png)
 
 ## Wanna run it locally?
 Download the source code and run the `index.html` file.
