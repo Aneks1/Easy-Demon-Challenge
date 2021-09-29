@@ -1,0 +1,26 @@
+{
+  "name": "easy-demon-challenge",
+  "version": "1.0.0",
+  "description": "![Easy Demon Challenge](https://github.com/ItsAmex/Easy-Demon-Challenge/blob/main/src/assets/EDC_Banner1.png)",
+  "main": "public/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsAmex/Easy-Demon-Challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItsAmex/Easy-Demon-Challenge/issues"
+  },
+  "homepage": "https://github.com/ItsAmex/Easy-Demon-Challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13"
+  }
+}
