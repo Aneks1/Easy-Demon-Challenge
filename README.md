@@ -10,4 +10,14 @@ Enjoy
 ![ScreenShot](https://github.com/ItsAmex/Easy-Demon-Challenge/blob/main/public/assets/Screenshot.png)
 
 ## Wanna run it locally?
-Download the source code and run the `index.html` file.
+- Download [Node.js](https://nodejs.org/) if you don't have it on you PC.
+- Download the source code
+- Run this in the termina/console:
+```
+$ npm install
+```
+- Run this:
+```
+$ node .
+```
+- Now Easy Demon Challenge will be running locally at http://localhost:8000 (or in the port specified in config.json)
