@@ -18,23 +18,41 @@ let pauseOppened = false
 
 let demonsArray: any = []
 
-let seed = ''
+let defaultSeed = '0'
 
-function getSeed() {
-    for(let i = 0; i <= 10; i++) {
-        const seedNumber1 = Math.floor(Math.random()  * (92 - 1) + 1)
-        const seedNumber2 = Math.floor(Math.random()  * (10 - 1) + 1)
-        seed = seed + seedNumber1.toString() + seedNumber2.toString()
-        console.log(seed)
+function generateSeed() {
+    let seed = ''
+
+    if(defaultSeed == '0') {
+        let startNumber = Math.floor(Math.random() * (10 - 0) + 0)
+
+        for(let i = 9; i >= 0; i--) {
+            let nextNum = startNumber * 2 + Math.floor(Math.random() * (3 - 0) + 0)
+            if(nextNum >= 10) nextNum = Math.floor(nextNum / 3)
+            startNumber = nextNum
+            seed = seed + nextNum.toString()
+        }
+        return seed
+    } else {
+        if(isNaN(parseInt(defaultSeed))) { throw new Error('\x1b[31mError: \x1b[0mThe seed provided must be a number.') }
+        if(defaultSeed.length != 10) {
+            throw new Error('\x1b[31mError: \x1b[0mThe seed provided must be 10 characters long.')
+        } else {
+            seed = defaultSeed
+            return seed
+        }
     }
 }
 
+let newSeed = generateSeed()
+let initSeedNumber = 0
+
 async function getRandomLevel() {
 
-    if(started == false) { button!.innerText = 'Completed'; startHours = 2; started = true; time = startHours * 60 * 60; demonsCompleted = 0; demons!.innerText = 'Demons Completed: 0'; allDemons!.innerHTML = ''; getSeed() }
+    if(started == false) { button!.innerText = 'Completed'; startHours = 2; started = true; time = startHours * 60 * 60; demonsCompleted = 0; demons!.innerText = 'Demons Completed: 0'; allDemons!.innerHTML = '' }
     else { demonsCompleted ++; demons!.innerText = 'Demons Completed: ' + demonsCompleted }
-
-    const randomPage = Math.floor(Math.random() * (92 - 1) + 1)
+    console.log(newSeed)
+    const randomPage = parseInt(newSeed[initSeedNumber])**2 + parseInt(newSeed[initSeedNumber ** 2 / 10])
     const randomResult = Math.floor(Math.random() * (10 - 1) + 1)
     let res = null
 
@@ -56,6 +74,8 @@ async function getRandomLevel() {
 
     allDemons!.scrollTop = allDemons!.scrollHeight - allDemons!.clientHeight;
     newTab!.style.marginLeft = '0rem'
+
+    initSeedNumber ++
 }
 
 function giveUp() {

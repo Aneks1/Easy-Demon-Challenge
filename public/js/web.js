@@ -24,15 +24,35 @@ let startHours = 2;
 let time = startHours * 60 * 60;
 let pauseOppened = false;
 let demonsArray = [];
-let seed = '';
-function getSeed() {
-    for (let i = 0; i <= 10; i++) {
-        const seedNumber1 = Math.floor(Math.random() * (92 - 1) + 1);
-        const seedNumber2 = Math.floor(Math.random() * (10 - 1) + 1);
-        seed = seed + seedNumber1.toString() + seedNumber2.toString();
-        console.log(seed);
+let defaultSeed = '0';
+function generateSeed() {
+    let seed = '';
+    if (defaultSeed == '0') {
+        let startNumber = Math.floor(Math.random() * (10 - 0) + 0);
+        for (let i = 9; i >= 0; i--) {
+            let nextNum = startNumber * 2 + Math.floor(Math.random() * (3 - 0) + 0);
+            if (nextNum >= 10)
+                nextNum = Math.floor(nextNum / 3);
+            startNumber = nextNum;
+            seed = seed + nextNum.toString();
+        }
+        return seed;
+    }
+    else {
+        if (isNaN(parseInt(defaultSeed))) {
+            throw new Error('\x1b[31mError: \x1b[0mThe seed provided must be a number.');
+        }
+        if (defaultSeed.length != 10) {
+            throw new Error('\x1b[31mError: \x1b[0mThe seed provided must be 10 characters long.');
+        }
+        else {
+            seed = defaultSeed;
+            return seed;
+        }
     }
 }
+let newSeed = generateSeed();
+let initSeedNumber = 0;
 function getRandomLevel() {
     return __awaiter(this, void 0, void 0, function* () {
         if (started == false) {
@@ -43,13 +63,13 @@ function getRandomLevel() {
             demonsCompleted = 0;
             demons.innerText = 'Demons Completed: 0';
             allDemons.innerHTML = '';
-            getSeed();
         }
         else {
             demonsCompleted++;
             demons.innerText = 'Demons Completed: ' + demonsCompleted;
         }
-        const randomPage = Math.floor(Math.random() * (92 - 1) + 1);
+        console.log(newSeed);
+        const randomPage = Math.pow(parseInt(newSeed[initSeedNumber]), 2) + parseInt(newSeed[Math.pow(initSeedNumber, 2) / 10]);
         const randomResult = Math.floor(Math.random() * (10 - 1) + 1);
         let res = null;
         try {
@@ -67,6 +87,10 @@ function getRandomLevel() {
         demonsArray.push(level);
         allDemons.scrollTop = allDemons.scrollHeight - allDemons.clientHeight;
         newTab.style.marginLeft = '0rem';
+        initSeedNumber++;
+        if (initSeedNumber >= 10) {
+            initSeedNumber = initSeedNumber - parseInt(newSeed[initSeedNumber]) - parseInt(newSeed[initSeedNumber - 5]);
+        }
     });
 }
 function giveUp() {
